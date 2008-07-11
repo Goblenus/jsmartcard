@@ -114,6 +114,12 @@ public class FrmMain extends javax.swing.JFrame {
         }
     }
     
+    private void insertStringData(){
+        String str = JOptionPane.showInputDialog(this, "Type ascii data to convert");
+        if(str == null) return;
+        tbAPDUDatain.setText(StringUtil.byteArrToString(str.getBytes(), " "));
+    }
+    
     private String getProtocolString(){
         switch(cbProto.getSelectedIndex()){
             case 1:
@@ -243,13 +249,14 @@ public class FrmMain extends javax.swing.JFrame {
         
         if(p3==null && Sdata.length()==0 && le==null)
             apdu = new CommandAPDU(cla, ins,p1, p2);
-        else if(p2 == null && le == null)
+        else if(p3 == null && le == null)
             apdu = new CommandAPDU(cla, ins ,p1, p2, data);
         else if(le == null)
             apdu = new CommandAPDU(cla, ins ,p1, p2,data,0,p3);
-        else
+        else{
+            if(p3 == null) p3 = 0;
            apdu = new CommandAPDU(cla, ins ,p1, p2, data,0,p3,le);
-        
+        }
          
         ResponseAPDU apdures = new ResponseAPDU(respBytes);
         
@@ -483,7 +490,7 @@ public class FrmMain extends javax.swing.JFrame {
         mnuSavedAPDU.add(mnuDelAPDU);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JSmartCard Explorer 1.0.2         Primiano Tucci -  http://www.primianotucci.com");
+        setTitle("JSmartCard Explorer 1.0.3         Primiano Tucci -  http://www.primianotucci.com");
         setFont(new java.awt.Font("Tahoma", 0, 12));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Reader Settings"));
@@ -976,7 +983,12 @@ public class FrmMain extends javax.swing.JFrame {
             }
         });
 
-        tbAPDUDatain.setFont(new java.awt.Font("Tahoma", 1, 11));
+        tbAPDUDatain.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tbAPDUDatain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbAPDUDatainMouseClicked(evt);
+            }
+        });
         tbAPDUDatain.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tbAPDUDatainFocusLost(evt);
@@ -1390,6 +1402,11 @@ private void tbAPDUP2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event
     if(tbAPDUP2.getText().trim().length()==0)
         tbAPDUP2.setText("00");
 }//GEN-LAST:event_tbAPDUP2FocusLost
+
+private void tbAPDUDatainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbAPDUDatainMouseClicked
+    if(evt.getClickCount()>1)
+        insertStringData();
+}//GEN-LAST:event_tbAPDUDatainMouseClicked
 
 
 

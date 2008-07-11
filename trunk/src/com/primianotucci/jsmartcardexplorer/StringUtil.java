@@ -78,6 +78,7 @@ public class StringUtil {
             return "0"+hx;
     }
        
+    
     public static byte[] stringToByteArr(String iStr){
         iStr = iStr.replace(" ","");
         byte[] outArr = new byte[iStr.length()/2];

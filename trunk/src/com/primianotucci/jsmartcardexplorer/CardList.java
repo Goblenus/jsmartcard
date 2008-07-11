@@ -41,10 +41,16 @@ public class CardList {
                         cards.put(new ATR(lastATR), lastName);
                         lastATR=null;
                     }else{
-                        if(lastATR==null)
+                        if(lastATR==null){
                             lastATR = StringUtil.stringToByteArr(line);
-                        else
-                            lastName = line;
+                            lastName ="";
+                        }
+                        else{
+                            line = line.trim();
+                            if(lastName == null) lastName ="";
+                            if(!lastName.equals("")) lastName+="; ";
+                            lastName += line;
+                        }
                     }
                 }catch(Exception ex){}
                 

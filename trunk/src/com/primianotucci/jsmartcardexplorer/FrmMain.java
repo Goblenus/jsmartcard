@@ -483,7 +483,7 @@ public class FrmMain extends javax.swing.JFrame {
         mnuSavedAPDU.add(mnuDelAPDU);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JSmartCard Explorer 1.0.1         Primiano Tucci -  http://www.primianotucci.com");
+        setTitle("JSmartCard Explorer 1.0.2         Primiano Tucci -  http://www.primianotucci.com");
         setFont(new java.awt.Font("Tahoma", 0, 12));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Reader Settings"));
@@ -960,7 +960,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel9.setText("Le");
         jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11));
         jButton1.setText("Send");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

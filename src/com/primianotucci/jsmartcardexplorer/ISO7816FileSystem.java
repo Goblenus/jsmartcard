@@ -27,23 +27,43 @@ public class ISO7816FileSystem {
         int curFile = 0;
         int readlen = 0;
         ISO7816FileSystem.DF DF = new ISO7816FileSystem.DF(iDF);
-
+        boolean isConstructedDO = false;
         
         while(in.available() > 0){
-            int b = in.read() & 0xff; 
+            int b = in.read() & 0xFF; 
             
             switch(state){
                 case 0:
+                    /*    * B6=0 introduces a primitive data object
+                          * B6=1 introduces a constructed data object
+                     */
+                    isConstructedDO = ((b & 0x20)!=0);
+                    /*Otherwise (B5-B1 set to 1 in the leading byte), the tag field shall continue on one or more subsequent bytes. */
+                    if((b & 0x1F) == 0x1F){
+                        int nextB = in.read() & 0xFF;
+                        b = (b << 8) | nextB;
+                    }
                     curFile = b;
                     state = 1;
                     break;
                 case 1:
-                    if(b == 0x81){
-                        state=3;
-                        break;
+                    //if B7 is 1, b contains the number of bytes forming the length
+                    if((b & 0x80) == 0x80){
+                        int bytes = b & 0x7F;
+                        readlen = 0;
+                        while(bytes-- > 0){
+                            readlen = readlen << 8;
+                            b = in.read() & 0xFF;
+                            readlen |= b;
+                        }
+                    }else{
+                        readlen = b;
                     }
-                    readlen = b;
-                    state = 2;
+                    
+                    if(isConstructedDO)
+                        state = 3;
+                    else
+                        state = 2;
                     buff.reset();
                     break;
                 case 2:
@@ -57,8 +77,9 @@ public class ISO7816FileSystem {
                     }
                     break;
                 case 3:
-                    byte[] subData = new byte[b];
-                    in.read(subData);
+                    byte[] subData = new byte[readlen];
+                    subData[0] = (byte)b;
+                    in.read(subData,1,readlen-1);
                     ISO7816FileSystem.DF subDF = parseStructure(subData,curFile);
                     DF.addSubDF(subDF);
                     state = 0;

@@ -983,7 +983,7 @@ public class FrmMain extends javax.swing.JFrame {
             }
         });
 
-        tbAPDUDatain.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        tbAPDUDatain.setFont(new java.awt.Font("Tahoma", 1, 11));
         tbAPDUDatain.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbAPDUDatainMouseClicked(evt);
@@ -1288,6 +1288,8 @@ private void mnuSaveAPDUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     CommandAPDU apdu = getTableAPDU().Cmd;
     if(apdu == null) return;
     String mnemonic = JOptionPane.showInputDialog("APDU mnemonic");
+    if(mnemonic==null) return;
+    mnemonic = mnemonic.replace(' ','_');
     listAPDUmod.addElement(new APDUCommandBoxing(apdu,mnemonic));
     listAPDU.updateUI();
 }//GEN-LAST:event_mnuSaveAPDUActionPerformed

@@ -281,7 +281,7 @@ public class FrmMain extends javax.swing.JFrame {
         String Sp1 = tbAPDUP1.getText().trim();
         String Sp2 = tbAPDUP2.getText().trim();
         String Sp3 = tbAPDUP3.getText().trim();
-        
+
         String Sle = tbAPDULe.getText().trim();
         
         Integer cla = StringUtil.parseHex(Scla);
@@ -290,6 +290,19 @@ public class FrmMain extends javax.swing.JFrame {
         Integer p2 = StringUtil.parseHex(Sp2);
         Integer p3 = StringUtil.parseHex(Sp3);
         Integer le = StringUtil.parseHex(Sle);
+
+        if(cla == null){
+           this.reportException(new Exception("Invalid value for CLASS"));
+           return;
+        }
+        if(ins == null){
+           this.reportException(new Exception("Invalid value for INS"));
+           return;
+        }
+        if(p1 == null || p2 == null){
+           this.reportException(new Exception("Invalid value for P1/2"));
+           return;
+        }
         
         byte[] data = StringUtil.stringToByteArr(Sdata);
         
@@ -490,7 +503,7 @@ public class FrmMain extends javax.swing.JFrame {
         mnuSavedAPDU.add(mnuDelAPDU);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JSmartCard Explorer 1.0.3         Primiano Tucci -  http://www.primianotucci.com");
+        setTitle("JSmartCard Explorer 1.0.4         Primiano Tucci -  http://www.primianotucci.com");
         setFont(new java.awt.Font("Tahoma", 0, 12));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Reader Settings"));
@@ -750,11 +763,11 @@ public class FrmMain extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panHistLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 857, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 870, Short.MAX_VALUE)
                     .addGroup(panHistLayout.createSequentialGroup()
                         .addGroup(panHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tbHistClass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, Short.MAX_VALUE))
                         .addGap(6, 6, 6)
                         .addGroup(panHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tbHistIns, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -773,8 +786,8 @@ public class FrmMain extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                         .addGap(6, 6, 6)
                         .addGroup(panHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
-                            .addComponent(tbHistDataIn, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                            .addComponent(tbHistDataIn, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tbHistDataLen)
@@ -785,8 +798,8 @@ public class FrmMain extends javax.swing.JFrame {
                             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panHistLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tbHistDataOut, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))))
+                            .addComponent(tbHistDataOut, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
@@ -844,7 +857,6 @@ public class FrmMain extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         tbAPDUClass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tbAPDUClass.setText("00");
         tbAPDUClass.setFont(new java.awt.Font("Tahoma", 1, 12));
         tbAPDUClass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -861,7 +873,6 @@ public class FrmMain extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         tbAPDUIns.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tbAPDUIns.setText("00");
         tbAPDUIns.setFont(new java.awt.Font("Tahoma", 1, 12));
         tbAPDUIns.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -878,7 +889,6 @@ public class FrmMain extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         tbAPDUP1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tbAPDUP1.setText("00");
         tbAPDUP1.setFont(new java.awt.Font("Tahoma", 1, 12));
         tbAPDUP1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -895,7 +905,6 @@ public class FrmMain extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         tbAPDUP2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tbAPDUP2.setText("00");
         tbAPDUP2.setFont(new java.awt.Font("Tahoma", 1, 12));
         tbAPDUP2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -924,7 +933,7 @@ public class FrmMain extends javax.swing.JFrame {
         });
 
         try {
-            tbAPDULe.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("HH")));
+            tbAPDULe.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("****")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -983,7 +992,7 @@ public class FrmMain extends javax.swing.JFrame {
             }
         });
 
-        tbAPDUDatain.setFont(new java.awt.Font("Tahoma", 1, 11));
+        tbAPDUDatain.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         tbAPDUDatain.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbAPDUDatainMouseClicked(evt);
@@ -1004,13 +1013,13 @@ public class FrmMain extends javax.swing.JFrame {
             .addGroup(panSendAPDULayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panSendAPDULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 877, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSendAPDULayout.createSequentialGroup()
                         .addComponent(btWizard, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panSendAPDULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tbAPDUClass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panSendAPDULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
@@ -1029,16 +1038,16 @@ public class FrmMain extends javax.swing.JFrame {
                             .addComponent(tbAPDUP3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panSendAPDULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
-                            .addComponent(tbAPDUDatain, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+                            .addComponent(tbAPDUDatain, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panSendAPDULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tbAPDULe, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)))
+                        .addGroup(panSendAPDULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                            .addComponent(tbAPDULe, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panSendAPDULayout.createSequentialGroup()
                         .addComponent(jLabel21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbLastStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)))
+                        .addComponent(lbLastStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1051,8 +1060,6 @@ public class FrmMain extends javax.swing.JFrame {
         panSendAPDULayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel5, tbAPDUP2});
 
         panSendAPDULayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel7, tbAPDUP3});
-
-        panSendAPDULayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel9, tbAPDULe});
 
         panSendAPDULayout.setVerticalGroup(
             panSendAPDULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1083,7 +1090,7 @@ public class FrmMain extends javax.swing.JFrame {
                         .addComponent(tbAPDULe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(panSendAPDULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbLastStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1116,7 +1123,7 @@ public class FrmMain extends javax.swing.JFrame {
             .addGroup(panSavedAPDULayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panSavedAPDULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 864, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 877, Short.MAX_VALUE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -1125,7 +1132,7 @@ public class FrmMain extends javax.swing.JFrame {
             .addGroup(panSavedAPDULayout.createSequentialGroup()
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1161,10 +1168,10 @@ public class FrmMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panDataViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20)
-                    .addComponent(scrollSentData, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE))
+                    .addComponent(scrollSentData, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panDataViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollRecvData, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
+                    .addComponent(scrollRecvData, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
                     .addComponent(jLabel22))
                 .addContainerGap())
         );
@@ -1176,8 +1183,8 @@ public class FrmMain extends javax.swing.JFrame {
                     .addComponent(jLabel22))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panDataViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollRecvData, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                    .addComponent(scrollSentData, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)))
+                    .addComponent(scrollRecvData, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                    .addComponent(scrollSentData, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
         );
 
         tabs.addTab("Data view", panDataView);
@@ -1205,7 +1212,7 @@ public class FrmMain extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollFSData, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
+                .addComponent(scrollFSData, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panFSLayout.setVerticalGroup(
@@ -1213,8 +1220,8 @@ public class FrmMain extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panFSLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panFSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(scrollFSData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                    .addComponent(scrollFSData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1227,7 +1234,7 @@ public class FrmMain extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(splitter, javax.swing.GroupLayout.DEFAULT_SIZE, 889, Short.MAX_VALUE)
+            .addComponent(splitter, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

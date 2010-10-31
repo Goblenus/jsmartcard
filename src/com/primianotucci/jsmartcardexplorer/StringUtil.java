@@ -7,8 +7,11 @@ package com.primianotucci.jsmartcardexplorer;
  */
 public class StringUtil {
     public static Integer parseHex(String iStr){
+        int mask = 0xFF;
+        if(iStr.length() > 2)
+            mask = 0xFFFF;
         try{
-            return (Integer.parseInt(iStr,16) & 0xFF);
+            return (Integer.parseInt(iStr,16) & mask);
         }catch(Exception ex){
             return null;
         }

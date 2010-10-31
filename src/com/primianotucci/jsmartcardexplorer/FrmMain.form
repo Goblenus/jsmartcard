@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.6" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
@@ -69,7 +69,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="JSmartCard Explorer 1.0.3         Primiano Tucci -  http://www.primianotucci.com"/>
+    <Property name="title" type="java.lang.String" value="JSmartCard Explorer 1.0.4         Primiano Tucci -  http://www.primianotucci.com"/>
     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
       <Font name="Tahoma" size="12" style="0"/>
     </Property>
@@ -80,6 +80,7 @@
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
     <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
@@ -92,7 +93,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-          <Component id="splitter" alignment="0" pref="889" max="32767" attributes="0"/>
+          <Component id="splitter" alignment="0" pref="906" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -329,7 +330,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane1" alignment="0" pref="857" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" alignment="0" pref="870" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="tbHistClass" linkSize="1" alignment="0" min="-2" pref="27" max="-2" attributes="1"/>
@@ -357,8 +358,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel15" pref="292" max="32767" attributes="2"/>
-                                  <Component id="tbHistDataIn" alignment="0" pref="292" max="32767" attributes="2"/>
+                                  <Component id="jLabel15" pref="295" max="32767" attributes="2"/>
+                                  <Component id="tbHistDataIn" alignment="0" pref="295" max="32767" attributes="2"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -372,8 +373,8 @@
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="tbHistDataOut" pref="287" max="32767" attributes="2"/>
-                                  <Component id="jLabel18" alignment="1" pref="287" max="32767" attributes="2"/>
+                                  <Component id="tbHistDataOut" pref="291" max="32767" attributes="2"/>
+                                  <Component id="jLabel18" alignment="1" pref="291" max="32767" attributes="2"/>
                               </Group>
                           </Group>
                       </Group>
@@ -792,7 +793,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton1" alignment="1" pref="864" max="32767" attributes="2"/>
+                              <Component id="jButton1" alignment="1" pref="877" max="32767" attributes="2"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btWizard" min="-2" pref="57" max="-2" attributes="1"/>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -822,19 +823,19 @@
                                   </Group>
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel8" alignment="0" pref="585" max="32767" attributes="0"/>
-                                      <Component id="tbAPDUDatain" alignment="0" pref="585" max="32767" attributes="0"/>
+                                      <Component id="jLabel8" pref="575" max="32767" attributes="0"/>
+                                      <Component id="tbAPDUDatain" min="-2" pref="575" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tbAPDULe" linkSize="11" alignment="0" min="-2" pref="30" max="-2" attributes="1"/>
-                                      <Component id="jLabel9" linkSize="11" alignment="0" pref="30" max="32767" attributes="1"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel9" pref="46" max="32767" attributes="1"/>
+                                      <Component id="tbAPDULe" min="-2" pref="46" max="-2" attributes="1"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lbLastStatus" pref="753" max="32767" attributes="0"/>
+                                  <Component id="lbLastStatus" pref="744" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -876,7 +877,7 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="28" max="-2" attributes="0"/>
-                          <EmptySpace pref="82" max="32767" attributes="0"/>
+                          <EmptySpace pref="72" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbLastStatus" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
                               <Component id="jLabel21" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
@@ -893,7 +894,6 @@
                       <Format format="HH" subtype="-1" type="5"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="00"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
@@ -909,7 +909,6 @@
                       <Format format="HH" subtype="-1" type="5"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="00"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
@@ -925,7 +924,6 @@
                       <Format format="HH" subtype="-1" type="5"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="00"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
@@ -941,7 +939,6 @@
                       <Format format="HH" subtype="-1" type="5"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="00"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
@@ -970,7 +967,7 @@
                 <Component class="javax.swing.JFormattedTextField" name="tbAPDULe">
                   <Properties>
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                      <Format format="HH" subtype="-1" type="5"/>
+                      <Format format="****" subtype="-1" type="5"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1116,7 +1113,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane2" alignment="0" pref="864" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" alignment="0" pref="877" max="32767" attributes="0"/>
                               <Component id="jLabel19" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1128,7 +1125,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" pref="178" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" pref="173" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1196,11 +1193,11 @@
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                              <Component id="scrollSentData" pref="429" max="32767" attributes="0"/>
+                              <Component id="scrollSentData" pref="435" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="scrollRecvData" pref="429" max="32767" attributes="0"/>
+                              <Component id="scrollRecvData" pref="435" max="32767" attributes="0"/>
                               <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -1216,8 +1213,8 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="scrollRecvData" pref="189" max="32767" attributes="0"/>
-                              <Component id="scrollSentData" alignment="0" pref="189" max="32767" attributes="0"/>
+                              <Component id="scrollRecvData" pref="186" max="32767" attributes="0"/>
+                              <Component id="scrollSentData" alignment="0" pref="186" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1304,7 +1301,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane5" min="-2" pref="274" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="scrollFSData" pref="584" max="32767" attributes="0"/>
+                          <Component id="scrollFSData" pref="596" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -1314,8 +1311,8 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="scrollFSData" alignment="0" pref="186" max="32767" attributes="0"/>
-                              <Component id="jScrollPane5" alignment="0" pref="186" max="32767" attributes="0"/>
+                              <Component id="scrollFSData" alignment="0" pref="180" max="32767" attributes="0"/>
+                              <Component id="jScrollPane5" alignment="0" pref="180" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
